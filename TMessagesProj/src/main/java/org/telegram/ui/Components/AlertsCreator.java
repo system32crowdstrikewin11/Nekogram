@@ -3383,7 +3383,7 @@ public class AlertsCreator {
             builder.setMessage(replaceTags(LocaleController.formatString("BlockUsersMessage", R.string.BlockUsersMessage, LocaleController.formatPluralString("UsersCount", count))));
         }
 
-        final boolean[] checks = new boolean[]{true, true};
+        final boolean[] checks = new boolean[]{true, reportSpam};
 
         for (int a = 0; a < cell.length; a++) {
             if (a == 0 && !reportSpam) {
@@ -3395,7 +3395,7 @@ public class AlertsCreator {
             if (a == 0) {
                 cell[a].setText(LocaleController.getString(R.string.ReportSpamTitle), "", true, false);
             } else {
-                cell[a].setText(count == 1 ? LocaleController.getString(R.string.DeleteThisChatBothSides) : LocaleController.getString(R.string.DeleteTheseChatsBothSides), "", true, false);
+                cell[a].setText(count == 1 ? LocaleController.getString(R.string.DeleteThisChatBothSides) : LocaleController.getString(R.string.DeleteTheseChatsBothSides), "", reportSpam, false);
             }
             cell[a].setPadding(LocaleController.isRTL ? dp(16) : dp(8), 0, LocaleController.isRTL ? dp(8) : dp(16), 0);
             linearLayout.addView(cell[a], LayoutHelper.createLinear(LayoutHelper.MATCH_PARENT, 48));
